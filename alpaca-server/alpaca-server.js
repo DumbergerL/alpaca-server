@@ -107,7 +107,7 @@ class AlpacaServer{
         this.joinedPlayerList.forEach( joinedPlayer => {
             if(joinedPlayer.id === player_id){
                 Object.assign(responseObj, this.alpacaGame.getPlayerStatus(joinedPlayer.id));
-                responseObj['cardpile-cards'] = this.alpacaGame.cardpile.length;                
+                responseObj['cardpile_cards'] = this.alpacaGame.cardpile.length;                
             }else{
                 var statusObject = this.alpacaGame.getPlayerStatus(joinedPlayer.id);
                 var anonymObject = {};
