@@ -1,35 +1,36 @@
 # Alpaca Game Rules
 
 ## Game Idea
-Your main goal is to drop all coins that you gain. Try to be the first who can get rid of all his cards, otherwise you will take punishment points. If you cant play a card on your hand, you need to make a decission. Leave the game or take a card from the cardpile. You will receive the minus points in coins. If you drop all cards you can also drop a coin. And that one can have the value one or ten. 
-Who has the fewest minus points wins the game!
+Your main goal is to get the least amount of points after the game has ended. To do so, you need to be smart about staying in a round while trying to get rid of all your cards or to drop out of the round and take some points. The first person to get rid of all their cards wins the round. They then can get rid of either one or ten points depending on how many points they have. The game ends when the first player has 40 or more points. The player with the least amount of points wins.
 
-## Game Preparation
-Every Player gets six Handcards, the remaining cards form the discard pile. The top card is now turned to top and will now be the discard pile.
+## Playing the game
 
-Now the Game starts:
+### Game Preparation
+Every Player gets six cards, the remaining cards are the draw cards. The top card is drawn and put onto the discard pile. Now the game can start.
 
-A player has only three options: Play a card, draw a card oder leave the round.
+### Playing a turn
+
+The player has three choices: Play a card, draw a card oder leave the round.
 
 1. Play a Card
-The top card ot the discardpile defines, what card you can play. You can play a card with the same value or a card thats ist exactly one higher. The alpaca card can be played on top of a six or on top of an alpaca card. On an alpaca card you can play a one.
+The top card of the discard pile determines, which card you can play. You can either play a card with the same value or a card that is exactly one higher. The alpaca card can be played on top of a six. Following the alpaca card you can play another alpaca or a one.
 
 2. Draw a Card
-Draw a card from the card pile. After that you are not allowed to play a card, the next player is on turn.
-*Important:* If the cardpile is empty, you can not draw a card. So you either play a card or leave the round.
+Draw a card from the card pile. After that you are not allowed to play a card and yout turn ends.
+*Important:* If the draw pile is empty, you can not draw a card. You can either play a card or leave the round.
 
 3. Leave the round
-You can leave the round. So in this round you are not allowed to do any actions.
+You can leave the round. You are not allowed to do any more actions in that round.
 
-## End of a round
+### End of a round
 A round ends imediatly if:
-* one player played all his handcard or
-* all players have left the round.
+* a player has discarded all of his/her cards, or
+* all players have left the round
 
-If all other players has left the round, you can play further on your own. But you are only allowed to draw cards.
+If all other players have left the round, you can play further on your own, but you are only allowed to play your remaining cards
 
-## Cash Up
-For the remaining hand cards, you will receive minus points. Every card counts its value als minus point, the alpaca counts als ten minus points. But every value counts just once. I.e. if you have left three times the card 2, you will only receive two minus points. You will receive the minus points in coins. A black coin equals 10 minus points, a white coin equals 1 minus points. If you collected ten white coins, you can change them to one black coin.
+### Counting points
+Every player receives points for their remaining cards. Every card counts its value as point, the alpaca counts as ten points. *Every value counts only once!* I.e. if you have  the card with the number 2 twice, you will only receive two points. Minus points are counted with coins. A black coin equals ten points, a white coin equals one point. If you have ten white coins, they will be exchanged for one black coin.
 
-## Drop Chips
-If you are the lucky player, who has played all his cards. You can drop one coin, no matter if it is a black (10) or a white (1) one.
+### Getting rid of points
+If you are the lucky player, who has managed to play all of their cards, you can get rid of one coin, no matter if it is a black (10) or a white (1) one.

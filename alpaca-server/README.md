@@ -1,13 +1,13 @@
 # Alpaca Server
 
 ## Start the Server
-The Server will be started, when the constructor is called. You can manually set the Players the Server should expect, by default it is 2 Players.
+The Server will be started, when the constructor is called. You can manually set the Players the Server should expect, the default is two players.
 ```
 var theServer = new AlpacaServer();
 theServer.expectedPlayer = 2;
 ```
 
-You can start the Server by executing: `npm run-script start`
+You can start the server by executing: `npm run-script start`
 
 ## Routes
 
@@ -15,11 +15,11 @@ You can start the Server by executing: `npm run-script start`
 * Route: `/join`
 * Method: `POST`
 * JSON-Body Parameters:
-    + `name` - Playername
-    + `callbackUrl` - Url where the Bot can waked up (optional) 
+    + `name` - the player's name
+    + `callbackUrl` - url to signal your bot (optional) 
 * Response: `{ player_id: "Bto2", player_name: "Sam"}`
 
-When you have set the callbackUrl the Alpaca Server will send an POST request to your bot, to wake him up. The returned player_id is important for authentification to the server. You need to store it!
+When you have set the callbackUrl the Alpaca Server will send a POST request to your bot, to wake him up. The returned player_id is important for authentication to the server. You need to store it!
 
 ### Get Game Status
 * Route: `/alpaca?id=Bto2`
@@ -73,10 +73,10 @@ When you have set the callbackUrl the Alpaca Server will send an POST request to
     "name": "THREE",
     "value": 3
   },
-  "cardpile-cards": 24
+  "cardpile-cards": 24 
 ```
 
-With the Alpace Endpoint you can get the current Game state. In `other_players` you can see the names of the other players, how many cards they have on theyre hand, the score and the coins they have. The `hand`-Attribute shows you your own Handcards. `my_turn` tells you if its your turn to invoke an action. The `score` shows you the value of all your coins. In `coins` all your coins are stored. On `discared_card` you can see the peek of the Discardpile. The `cardpile-cards` give you information how many cards remains, that can be drawed.
+With the Alpace Endpoint you can get the current game state. In `other_players` you can see the names of the other players, how many cards they have on their hand, their score and the coins they have. The `hand` array contains your cards. `my_turn` tells you if its your turn to invoke an action. The `score` shows you the value of all your coins. In `coins` all your coins are stored. `discared_card` contains the current card on top of the discard pile. The `cardpile-cards` give you information on how many cards remain, that can be drawn.
 
 ### Perform an action
 * Route: `/alpaca?id=Bto2`
@@ -90,22 +90,22 @@ With the Alpace Endpoint you can get the current Game state. In `other_players` 
 ```
 * Response: Same as Get Game Status
 
-There are three Actions you can invoke: 
-1. "DROP CARD" - You drop a Card from your Hand to the Discardpile
-2. "DRAW CARD" - You draw a Card from the Cardpile (card attribute not necessary)
-3. "LEAVE ROUND" - You quit this Round and take the Minus Points of your Hand (card attribute not necessary)
+There are three actions you can invoke: 
+1. "DROP CARD" - You drop a card from your hand to the discard pile
+2. "DRAW CARD" - You draw a card from the card pile (card attribute not necessary)
+3. "LEAVE ROUND" - You quit this round and take the points remaining in your hand (card attribute not necessary)
 
 ## HTTP Error Codes
 * 200 - Ok - Request was successful
-* 400 - Bad Request - A Parameter is missing or not well formed
-* 401 - Unauthorized - The Id is invalid
-* 403 - Forbidden - Its not your Turn
+* 400 - Bad Request - A parameter is missing or malformed
+* 401 - Unauthorized - The id is invalid
+* 403 - Forbidden - Its not your turn
 * 404 - Not Found - Route is not defined
-* 500 - Internal Server Error - General Error
-* 503 - Service Unavailable - Alpaca Game is already running. No more Players accepted
+* 500 - Internal Server Error - General error
+* 503 - Service Unavailable - Alpaca Game is already running, no more players can join
 
 
-If an Error occours, there will be a JSON Response:
+If an error occours, there will be a JSON Response:
 ```
 {
   "error": {
@@ -114,7 +114,3 @@ If an Error occours, there will be a JSON Response:
   }
 }
 ```
-## Sensible Server
-For Developing Purpose you can start an "Sensible" Server. Its a Server Express that is listening on the Port 3030 for every GET oder POST Request. This might help you develop the Callback Handler. 
-
-To execupte run: `npm run-script sensible-server`
