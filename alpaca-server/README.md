@@ -73,10 +73,11 @@ When you have set the callbackUrl the Alpaca Server will send a POST request to 
     "name": "THREE",
     "value": 3
   },
-  "cardpile_cards": 24 
+  "cardpile_cards": 24,
+  "players_left": 2
 ```
 
-With the Alpace Endpoint you can get the current game state. In `other_players` you can see the names of the other players, how many cards they have on their hand, their score and the coins they have. The `hand` array contains your cards. `my_turn` tells you if its your turn to invoke an action. The `score` shows you the value of all your coins. In `coins` all your coins are stored. `discared_card` contains the current card on top of the discard pile. The `cardpile-cards` give you information on how many cards remain, that can be drawn.
+With the Alpace Endpoint you can get the current game state. In `other_players` you can see the names of the other players, how many cards they have on their hand, their score and the coins they have. The `hand` array contains your cards. `my_turn` tells you if its your turn to invoke an action. The `score` shows you the value of all your coins. In `coins` all your coins are stored. `discared_card` contains the current card on top of the discard pile. The `cardpile_cards` give you information on how many cards remain, that can be drawn. `players_left` tells you how many players are left in the game. It's important because if you are the only player who remains in the game, you can't draw cards.
 
 ### Perform an action
 * Route: `/alpaca?id=Bto2`

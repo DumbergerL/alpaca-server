@@ -100,6 +100,8 @@ class AlpacaServer{
     getGames(req, res){
         var player_id = req.query.id;
         
+        if(!this.alpacaGame)res.send( {} );
+
         var responseObj = {
             other_players: []
         };
@@ -120,6 +122,8 @@ class AlpacaServer{
                 responseObj.other_players.push(anonymObject);
             }
         });
+
+        responseObj.players_left = this.alpacaGame.getNumberLeftPlayers();
 
         res.send( responseObj );
     }

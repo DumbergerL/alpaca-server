@@ -74,6 +74,8 @@ class AlpacaGame{
                 break;
             case 'DRAW CARD':
                 if(this.cardpile.length <= 0)throw("There are no Cards left on the Draw Pile! Choose other Action...");
+                if(this.getNumberLeftPlayers() <= 1)throw("The last Player can't draw cards.");
+                
                 this.currentPlayer.drawCard();
                 break;
             case 'LEAVE ROUND':
@@ -129,6 +131,13 @@ class AlpacaGame{
         return status;
     }
 
+    getNumberLeftPlayers(){
+        var numberPlayersInGame = 0;
+        this.playerList.forEach( player => {
+            if(!player.leftRound)numberPlayersInGame++;
+        });
+        return numberPlayersInGame;
+    }
     _finishedRound(){
         if(this.DEBUG){
             console.log();
