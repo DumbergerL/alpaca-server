@@ -1,4 +1,4 @@
 let AlpacaServer = require('./alpaca-server');
 
 var theServer = new AlpacaServer();
-theServer.expectedPlayer = 2;
+theServer.expectedPlayer = 4;

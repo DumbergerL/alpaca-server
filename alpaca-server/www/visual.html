@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hello World!</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>
+</head>
+<body>
+    <div class="container">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Register Again</a>
+                </li>
+                <li class="nav-item">
+                    <input type="number" class="form-control" placeholder="Update Timeout" id="timeout"/>
+                </li>
+                
+            </ul>
+    </div>
+    <style>
+        :root{
+            --card-height: 12rem;
+            --card-width: 9rem;
+            --border-radius: 10px;
+            --padding: 30px;
+        }
+
+        #discard-pile, #draw-pile, #players{
+            padding-top: var(--padding);
+            padding-bottom: var(--padding);
+        }
+
+
+        #discard-pile li, #draw-pile li, #players ul > li:last-child{
+            height: var(--card-height);
+        }   
+        #discard-pile .card, #players .card, #draw-pile .card{
+            width: var(--card-width);
+        }     
+
+        .card li{
+            box-shadow: 5px -2px 6px 1px rgba(0, 0, 0, 0.2);
+            border-top-left-radius: var(--border-radius) !important;
+            border-top-right-radius: var(--border-radius) !important;
+            margin-top: calc(-1 * var(--border-radius)) !important;
+
+            /*transform: rotate( calc(random(1) * 20deg) );
+            -webkit-transform: rotate( calc(random(1) *20deg) );*/
+        }
+        .card li:last-child{
+            border-bottom-left-radius: var(--border-radius) !important;
+            border-bottom-right-radius: var(--border-radius) !important;
+        }
+    </style>
+    
+    <div class="container">
+        <div class="row">
+            <h1>Alpaca Game!</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col" id="discard-pile">
+                        <div class="card">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item list-group-item-success">ZERO</li>
+                            </ul>    
+                        </div>
+                    </div>
+                    <div class="col" id="draw-pile">
+                        <div class="card">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" style="text-align: right;" id="cardpile-cards"></li>
+                            </ul>    
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="players">
+                    <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    <b>Hand Mayer</b>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item list-group-item-success">ZERO</li>
+                                    <li class="list-group-item list-group-item-warning">SIX</li>
+                                    <li class="list-group-item list-group-item-primary">ALPACA</li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                    <ul class="list-group" id="scores">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Cras justo odio
+                            <span class="badge badge-primary badge-pill">14</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Dapibus ac facilisis in
+                        <span class="badge badge-primary badge-pill">2</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Morbi leo risus
+                        <span class="badge badge-primary badge-pill">1</span>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="alert alert-danger" style="display: none;" role="alert" id="error">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/loadash.js"></script>
+<script src='js/ajax.js'></script>
+
+</html>

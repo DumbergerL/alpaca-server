@@ -9,15 +9,18 @@ let JoinedPlayer = require('./lib/JoinedPlayer');
 
 
 
+
 class AlpacaServer{
 
     constructor(){
         this.alpacaGame;
+
+        this.visualToken = JoinedPlayer.GENERATE_ID();
         
         this.expectedPlayer = 2;
         this.joinedPlayerList = Array();
 
-        app.use(express.static(__dirname));
+        app.use(express.static(__dirname+'/www'));
         app.use(express.json());                        
         app.use(express.urlencoded({ extended: true }));
 
@@ -36,6 +39,7 @@ class AlpacaServer{
         app.use(speedLimiter);
 
         app.get('/', this.getStartpage.bind(this));
+        app.get('/visual-data', this.getVisualData.bind(this));
         app.post('/join', this.postJoin.bind(this));
         app.get('/alpaca', this.getGames.bind(this));
         app.post('/alpaca', this.postGames.bind(this));
@@ -45,6 +49,7 @@ class AlpacaServer{
         app.listen(3000, function () {
             console.log('\nAlpaca-Server started and listening to port 3000!');
         });
+
     }
 
     initGame(){
@@ -71,14 +76,7 @@ class AlpacaServer{
     }
 
     getStartpage(req, res){
-        var output = "";
-        output += "<h1>Alpaca Server</h1>";
-        if(this.AlpacaGame){
-            output += "To be implemented...";
-        }else{
-            output += "<p>Waiting for People to Join...</p>";
-        }
-        res.send(output);
+        res.send('<script>location.href = "visual.html?visual_token='+this.visualToken+'";</script>');
     }
 
     postJoin(req, res){
@@ -96,6 +94,33 @@ class AlpacaServer{
 
         res.json({player_id: hash, player_name: req.body.name});
     }
+
+    getVisualData(req, res){
+        if(!req.query.visual_token)throw "No Visual Token has been set!";
+        if(req.query.visual_token != this.visualToken)throw "Visual Token is invalid!";
+        
+        if(!this.alpacaGame)res.send( {} );
+
+        var responseObj = {
+            players: {}
+        };
+        
+        this.joinedPlayerList.forEach( joinedPlayer => {
+            var playerObj =this.alpacaGame.getPlayerStatus(joinedPlayer.id);
+            responseObj.discarded_card = playerObj.discarded_card;
+            delete playerObj.discarded_card;
+            
+            playerObj.name = joinedPlayer.name;
+
+            responseObj.players[joinedPlayer.id] = playerObj;
+        });
+
+        responseObj.cardpile_cards = this.alpacaGame.cardpile.length;                
+        responseObj.players_left = this.alpacaGame.getNumberLeftPlayers();
+
+        res.send( responseObj );
+    }
+
 
     getGames(req, res){
         var player_id = req.query.id;
