@@ -126,6 +126,7 @@ class AlpacaGame{
                 status['score'] = player.getScore();
                 status['coins'] = player.coins;
                 status['discarded_card'] = this.getDiscardpileCard();
+                status['left_round'] = player.leftRound;
             }
         });
         return status;
