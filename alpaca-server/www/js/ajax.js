@@ -99,13 +99,13 @@ function getColorClass(value){
     color = '';
 
     if(value <= 2){
-        color = 'list-group-item-success';
-    }else if(value <= 4){
-        color = 'list-group-item-warning';
-    }else if(value <= 6){
-        color = 'list-group-item-primary';
-    }else{
         color = 'list-group-item-dark';
+    }else if(value <= 4){
+        color = 'list-group-item-success';
+    }else if(value <= 6){
+        color = 'list-group-item-danger';
+    }else{
+        color = 'list-group-item-warning';
     }
 
     return color;
