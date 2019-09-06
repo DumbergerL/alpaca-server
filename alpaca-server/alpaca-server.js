@@ -141,7 +141,8 @@ class AlpacaServer{
                 anonymObject[joinedPlayer.name] = {
                     hand_cards: statusObject.hand.length,
                     coins: statusObject.coins,
-                    score: statusObject.score
+                    score: statusObject.score,
+                    left_round: statusObject.left_round,
                 };
 
                 responseObj.other_players.push(anonymObject);

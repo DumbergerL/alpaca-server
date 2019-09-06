@@ -36,7 +36,8 @@ When you have set the callbackUrl the Alpaca Server will send a POST request to 
             "value": 10
           },
         ],
-        "score": 10
+        "score": 10,
+        "left_round": false
       }
     }
   ],
