@@ -99,7 +99,7 @@ class AlpacaServer{
         if(!req.query.visual_token)throw "No Visual Token has been set!";
         if(req.query.visual_token != this.visualToken)throw "Visual Token is invalid!";
         
-        if(!this.alpacaGame)res.send( {} );
+        if(!this.alpacaGame)throw "The Game has not been started";
 
         var responseObj = {
             players: {}
