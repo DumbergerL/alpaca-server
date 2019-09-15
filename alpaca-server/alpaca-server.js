@@ -137,8 +137,8 @@ class AlpacaServer{
                 responseObj['cardpile_cards'] = this.alpacaGame.cardpile.length;                
             }else{
                 var statusObject = this.alpacaGame.getPlayerStatus(joinedPlayer.id);
-                var anonymObject = {};
-                anonymObject[joinedPlayer.name] = {
+                var anonymObject = {
+		    player_name: joinedPlayer.name,
                     hand_cards: statusObject.hand.length,
                     coins: statusObject.coins,
                     score: statusObject.score,
