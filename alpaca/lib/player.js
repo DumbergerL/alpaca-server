@@ -57,7 +57,7 @@ class Player{
 
     sortCoins(){
         this.coins.sort( (a,b) => {
-            return b.value - a.value;
+            return a.value - b.value;
         });
     }
 
